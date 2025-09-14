@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Welcome, {{ session['username'] }} 👋</h2>
+
+  <h4 class="mt-4">Available Internships</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Deadline</th>
+        <th>Apply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Example Corp</td>
+        <td>Software Intern</td>
+        <td>20 Sep 2025</td>
+        <td><a href="/apply1" class="btn btn-sm btn-primary">Apply</a></td>
+      </tr>
+      <tr>
+        <td>Tech Solutions</td>
+        <td>Data Analyst Intern</td>
+        <td>25 Sep 2025</td>
+        <td><a href="/apply2" class="btn btn-sm btn-primary">Apply</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="mt-5">Upload Your Resume</h4>
+  <form action="{{ url_for('resume') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="resume" class="form-control mb-3" required>
+    <button type="submit" class="btn btn-success">Upload & Analyze</button>
+  </form>
+</div>
+{% endblock %}
